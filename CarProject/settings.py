@@ -79,11 +79,11 @@ DB_URL = os.environ.get("DB_URL")
 DATABASES = {
     'default': {
         "ENGINE":   "django.db.backends.postgresql_psycopg2",
-        "NAME":     "railway",
-        "USER":     "postgres",
-        "PASSWORD": "04v2OlZp4u9KuK9QMD2Y",
-        "HOST":     "containers-us-west-136.railway.app",
-        "PORT":     "5960"
+        "NAME":     os.environ.get("PGDATABASE") or os.environ.get("POSTGRES_DB"),
+        "USER":     os.environ.get("PGUSER") or os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("PGPASSWORD") or os.environ.get("POSTGRES_PASSWORD"),
+        "HOST":     os.environ.get("PGHOST") or 'db' or 'localhost',
+        "PORT":     os.environ.get("PGPORT") or "5432"
     }
 }
 
