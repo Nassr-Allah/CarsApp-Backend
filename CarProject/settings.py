@@ -84,6 +84,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("PGPASSWORD") or os.environ.get("POSTGRES_PASSWORD"),
         "HOST":     os.environ.get("PGHOST") or 'db' or 'localhost',
         "PORT":     os.environ.get("PGPORT") or "5432"
+
     }
 }
 
