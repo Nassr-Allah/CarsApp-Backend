@@ -20,7 +20,7 @@ services:
   web:
     build: .
     #    command: gunicorn --bind :8000 --workers 2 CarsProject.wsgi
-    command: python3 manage.py runserver
+    command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code:z
     ports:

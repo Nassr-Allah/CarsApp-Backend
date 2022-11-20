@@ -55,8 +55,7 @@ ROOT_URLCONF = 'CarProject.urls'
 TEMPLATES = [
     {
         'BACKEND':  'django.template.backends.django.DjangoTemplates',
-        'DIRS':     [BASE_DIR / 'templates']
-        ,
+        'DIRS':     [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS':  {
             'context_processors': [
@@ -76,12 +75,12 @@ WSGI_APPLICATION = 'CarProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE":   "django.db.backends.postgresql",
-        "NAME":     os.environ.get("PGDATABASE"),
-        "USER":     os.environ.get("PGUSER"),
-        "PASSWORD": os.environ.get("PGPASSWORD"),
-        "HOST":     os.environ.get("PGHOST"),
-        "PORT":     os.environ.get("PGPORT"),
+        "ENGINE":   "django.db.backends.postgresql_psycopg2",
+        "NAME":     os.environ.get("PGDATABASE") or os.environ.get("POSTGRES_DB"),
+        "USER":     os.environ.get("PGUSER") or os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("PGPASSWORD") or os.environ.get("POSTGRES_PASSWORD"),
+        "HOST":     os.environ.get("PGHOST") or 'db' or 'localhost',
+        "PORT":     os.environ.get("PGPORT") or "5432"
     }
 }
 
@@ -126,4 +125,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "cars-app.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "https://cars-app.up.railway.app"]
