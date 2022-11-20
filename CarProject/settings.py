@@ -126,4 +126,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev']
+CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "cars-app.up.railway.app"]
