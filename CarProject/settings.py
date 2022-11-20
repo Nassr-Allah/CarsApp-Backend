@@ -25,7 +25,7 @@ SECRET_KEY = "&8njn*e8^02of0c@$5)-*(z!v6b+n0^4iw+^9y)m(tuea+)bo0"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*', "cars-app.up.railway.app"]
 
 # Application definition
 
