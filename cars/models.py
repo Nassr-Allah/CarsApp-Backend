@@ -14,7 +14,7 @@ class CarModel(models.Model):
 class Service(models.Model):
     service_name = models.CharField(max_length=60, default="")
     service_price = models.CharField(max_length=12, default="")
-    service_model = models.ForeignKey(Car, on_delete=models.CASCADE)
+    service_model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
 
 
 class Reservation(models.Model):
