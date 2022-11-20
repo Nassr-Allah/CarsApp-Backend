@@ -13,6 +13,8 @@ import os
 
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -73,6 +75,7 @@ WSGI_APPLICATION = 'CarProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DB_URL = os.environ.get("DB_URL")
 DATABASES = {
     'default': {
         "ENGINE":   "django.db.backends.postgresql_psycopg2",
