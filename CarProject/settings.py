@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
 
 import environs
 from pathlib import Path
@@ -22,7 +23,7 @@ env = environs.Env()
 env.read_env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = "&8njn*e8^02of0c@$5)-*(z!v6b+n0^4iw+^9y)m(tuea+)bo0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
@@ -77,7 +78,14 @@ WSGI_APPLICATION = 'CarProject.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3"),
+    'default': {
+        "ENGINE":   "django.db.backends.postgresql",
+        "NAME":     os.environ.get("PGDATABASE"),
+        "USER":     os.environ.get("PGUSER"),
+        "PASSWORD": os.environ.get("PGPASSWORD"),
+        "HOST":     os.environ.get("PGHOST"),
+        "PORT":     os.environ.get("PGPORT"),
+    }
 }
 
 # Password validation
