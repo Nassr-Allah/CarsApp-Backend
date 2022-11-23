@@ -11,11 +11,9 @@ class CarCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
 
-
     def get(self, request, *args, **kwargs):
         if kwargs.get('pk'):
             return self.retrieve(request, args, kwargs)
-        obj = Car.objects.get(pk=1)
         return self.list(request, args, kwargs)
 
     def post(self, request, *args, **kwargs):
