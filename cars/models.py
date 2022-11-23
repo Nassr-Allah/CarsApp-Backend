@@ -31,6 +31,8 @@ class Reservation(models.Model):
     client_phone = models.CharField(max_length=20, default="")
     reservation_date = models.CharField(max_length=50, default="")
     reservation_service = models.ForeignKey(Service, null=True, on_delete=models.SET_NULL)
+    car_year = models.CharField(max_length=30, default="")
+    car_engine = models.CharField(max_length=30, default="")
 
     def __str__(self):
         return f"{self.client_full_name}/{self.reservation_date}/{self.reservation_service}"
