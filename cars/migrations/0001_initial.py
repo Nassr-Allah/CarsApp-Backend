@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('model_name', models.CharField(default='', max_length=30)),
-                ('car_model', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cars.car')),
+                ('car', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cars.car')),
             ],
         ),
     ]

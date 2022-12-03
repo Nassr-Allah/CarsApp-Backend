@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='reservation',
-            name='car_model',
+            name='car',
             field=models.CharField(default='', max_length=30),
         ),
     ]

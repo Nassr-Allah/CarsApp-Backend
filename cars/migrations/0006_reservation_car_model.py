@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='reservation',
-            name='car_model',
+            name='car',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='cars.carmodel'),
         ),
     ]
