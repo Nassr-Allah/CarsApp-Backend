@@ -1,0 +1,58 @@
+[
+  {
+    "model": "cars.car",
+    "pk": 6,
+    "fields": {
+      "car_brand": "AUDI"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 7,
+    "fields": {
+      "car_brand": "SKODA"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 8,
+    "fields": {
+      "car_brand": "RENAULT"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 9,
+    "fields": {
+      "car_brand": "FIAT"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 10,
+    "fields": {
+      "car_brand": "DACIA"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 11,
+    "fields": {
+      "car_brand": "PEUGEOT"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 12,
+    "fields": {
+      "car_brand": "CITROEN"
+    }
+  },
+  {
+    "model": "cars.car",
+    "pk": 13,
+    "fields": {
+      "car_brand": "VOLKSWAGEN"
+    }
+  }
+]

@@ -12,7 +12,7 @@ class Car(models.Model):
 class CarModel(models.Model):
     model_name = models.CharField(max_length=30, default="", unique=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    image_url = models.CharField(max_length=300, default="")
+    image_url = models.CharField(max_length=300, default="", blank=True)
 
     def __str__(self):
         return self.model_name
