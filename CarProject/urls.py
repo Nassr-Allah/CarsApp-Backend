@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from cars.views import CarCRUD, CarModelCRUD, ServiceCRUD, ReservationCRUD
+from cars.views import CarCRUD, CarModelCRUD, ServiceCRUD, ReservationCRUD, PriceCRUD
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('cars/<str:name>/models/', CarModelCRUD.as_view(), name='models'),
     path('services/', ServiceCRUD.as_view(), name='services'),
     path('reservations/', ReservationCRUD.as_view(), name='reservations'),
+    path('prices/', PriceCRUD.as_view(), name='prices')
 ]

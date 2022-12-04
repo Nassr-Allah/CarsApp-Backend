@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Car, CarModel, Service, Reservation
+from .models import Car, CarModel, Service, Reservation, Price
 
 
 class ServiceSerializer(serializers.ModelSerializer):
@@ -10,8 +10,6 @@ class ServiceSerializer(serializers.ModelSerializer):
 
 
 class CarModelSerializer(serializers.ModelSerializer):
-    service_set = ServiceSerializer(many=True)
-
     class Meta:
         model = CarModel
         fields = "__all__"
@@ -30,5 +28,12 @@ class CarSerializer(serializers.ModelSerializer):
 class ReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservation
+        fields = "__all__"
+        depth = 1
+
+
+class PriceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Price
         fields = "__all__"
         depth = 1
