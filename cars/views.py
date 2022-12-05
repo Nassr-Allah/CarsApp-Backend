@@ -76,7 +76,7 @@ class ReservationCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
         return self.list(request, args, kwargs)
 
     def post(self, request, *args, **kwargs):
-        return self.create(request.args, kwargs)
+        return self.create(request, args, kwargs)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
