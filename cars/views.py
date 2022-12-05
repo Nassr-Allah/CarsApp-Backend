@@ -1,6 +1,7 @@
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import CreateModelMixin, ListModelMixin
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Car, CarModel, Service, Reservation, Price
 from .serializers import (
@@ -93,7 +94,18 @@ class PriceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
         return self.list(request, args, kwargs)
 
     def post(self, request, *args, **kwargs):
-        return self.create(request, args, kwargs)
+        car_model = CarModel.objects.filter(pk=request.data.get('car_model')).first()
+        if not car_model:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "car model not found"})
+        service = Service.objects.filter(pk=request.data.get('service')).first()
+        if not service:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "service not found"})
+        serializer = PriceSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.validated_data['car_model'] = car_model
+        serializer.validated_data['service'] = service
+        serializer.save()
+        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
