@@ -80,7 +80,8 @@ class ReservationCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
         if not service:
             return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'reservation service not found'})
         serializer = ReservationSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        if not serializer.is_valid():
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'serializer is not valide'})
         serializer.validated_data['reservation_service'] = service
         serializer.save()
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
