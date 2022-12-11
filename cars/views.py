@@ -2,14 +2,8 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import CreateModelMixin, ListModelMixin
 from rest_framework.response import Response
 from rest_framework import status
-
-from .models import Car, CarModel, Service, Reservation, Price
-from .serializers import (
-    CarSerializer, CarModelSerializer,
-    ServiceSerializer, ReservationSerializer,
-    PriceSerializer
-)
-
+from .models import *
+from .serializers import *
 
 # Create your views here.
 class CarCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
@@ -110,4 +104,19 @@ class PriceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = PriceSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class PieceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
+    queryset = Piece.objects.all()
+    serializer_class = PieceSerializer
+
+    def get(self, request, *args, **kwargs):
+        if kwargs.get('pk'):
+            return self.retrieve(request, args, kwargs)
+        return self.list(request, args, kwargs)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = PieceSerializer(queryset, many=True)
         return Response(serializer.data)
