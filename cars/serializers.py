@@ -27,7 +27,7 @@ class CarModelSerializer(serializers.ModelSerializer):
 
 
 class CarSerializer(serializers.ModelSerializer):
-    carmodel_set = CarModelSerializer(many=True)
+    carmodel_set = CarModelSerializer(many=True, read_only=True)
 
     class Meta:
         model = Car
