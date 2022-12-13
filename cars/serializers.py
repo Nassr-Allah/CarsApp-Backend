@@ -2,7 +2,17 @@ from rest_framework import serializers
 from .models import *
 
 
+class MiniServiceSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MiniService
+        fields = "__all__"
+        depth = 1
+
+
 class ServiceSerializer(serializers.ModelSerializer):
+    miniservice_set = MiniServiceSerializer(many=True)
+
     class Meta:
         model = Service
         fields = "__all__"
@@ -31,11 +41,3 @@ class ReservationSerializer(serializers.ModelSerializer):
         fields = "__all__"
         depth = 1
 
-
-class MiniServiceSerializer(serializers.ModelSerializer):
-    miniservice_set = ServiceSerializer(many=True)
-
-    class Meta:
-        model = MiniService
-        fields = "__all__"
-        depth = 1
