@@ -33,6 +33,8 @@ class ReservationSerializer(serializers.ModelSerializer):
 
 
 class MiniServiceSerializer(serializers.ModelSerializer):
+    miniservice_set = ServiceSerializer(many=True)
+
     class Meta:
         model = MiniService
         fields = "__all__"
