@@ -24,6 +24,5 @@ urlpatterns = [
     path('cars/<str:name>/models/', CarModelCRUD.as_view(), name='models'),
     path('services/', ServiceCRUD.as_view(), name='services'),
     path('reservations/', ReservationCRUD.as_view(), name='reservations'),
-    path('prices/', PriceCRUD.as_view(), name='prices'),
-    path('pieces/', PieceCRUD.as_view(), name='pieces'),
+    path('miniservices/', MiniServiceCRUD.as_view(), name='mini_services')
 ]

@@ -5,6 +5,7 @@ from rest_framework import status
 from .models import *
 from .serializers import *
 
+
 # Create your views here.
 class CarCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     queryset = Car.objects.all()
@@ -78,9 +79,9 @@ class ReservationCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
         return Response(serializer.data)
 
 
-class PriceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
+class MiniServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
+    queryset = MiniService.objects.all()
+    serializer_class = MiniServiceSerializer
 
     def get(self, request, *args, **kwargs):
         if kwargs.get('pk'):
@@ -88,35 +89,9 @@ class PriceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
         return self.list(request, args, kwargs)
 
     def post(self, request, *args, **kwargs):
-        car_model = CarModel.objects.filter(pk=request.data.get('car_model')).first()
-        if not car_model:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "car model not found"})
-        service = Service.objects.filter(pk=request.data.get('service')).first()
-        if not service:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "service not found"})
-        serializer = PriceSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.validated_data['car_model'] = car_model
-        serializer.validated_data['service'] = service
-        serializer.save()
-        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+        return self.create(self, args, kwargs)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = PriceSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-
-class PieceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
-    queryset = Piece.objects.all()
-    serializer_class = PieceSerializer
-
-    def get(self, request, *args, **kwargs):
-        if kwargs.get('pk'):
-            return self.retrieve(request, args, kwargs)
-        return self.list(request, args, kwargs)
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        serializer = PieceSerializer(queryset, many=True)
+        serializer = MiniServiceSerializer(queryset, many=True)
         return Response(serializer.data)

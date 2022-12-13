@@ -21,7 +21,6 @@ class CarModel(models.Model):
 
 class Service(models.Model):
     service_name = models.CharField(max_length=60, default="")
-    is_piece = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.service_name}"
@@ -33,26 +32,16 @@ class Reservation(models.Model):
     reservation_date = models.CharField(max_length=50, default="")
     reservation_time = models.CharField(max_length=30, default="")
     reservation_services = models.CharField(max_length=1024, default="")
-    reservation_pieces = models.CharField(max_length=1024, default="")
     car_year = models.CharField(max_length=30, default="")
     car_engine = models.CharField(max_length=30, default="")
     car_brand = models.CharField(max_length=30, default="")
     car_model = models.CharField(max_length=30, default="")
     engine_type = models.CharField(max_length=30, default="")
-    total_price = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.client_full_name}/{self.reservation_date}/{self.reservation_services}/{self.reservation_pieces}"
+        return f"{self.client_full_name}/{self.reservation_date}/{self.reservation_services}"
 
 
-class Price(models.Model):
-    price = models.IntegerField(default=0)
-    car_model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
+class MiniService(models.Model):
+    name = models.CharField(max_length=256, default="")
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-
-
-class Piece(models.Model):
-    name = models.CharField(max_length=30, default=0)
-    price = models.IntegerField(default=0)
-    workforce_price = models.IntegerField(default=0)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)

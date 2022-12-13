@@ -32,15 +32,8 @@ class ReservationSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-class PriceSerializer(serializers.ModelSerializer):
+class MiniServiceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Price
+        model = MiniService
         fields = "__all__"
         depth = 1
-
-
-class PieceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Piece
-        fields = "__all__"
-        depth = 0
