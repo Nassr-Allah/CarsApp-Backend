@@ -42,6 +42,9 @@ class CarModelCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixi
         serializer = CarModelSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
 
 class ServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     queryset = Service.objects.all()
