@@ -79,7 +79,7 @@ class ReservationCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
         return Response(serializer.data)
 
     def delete(self, request, *args, **kwargs):
-        return self.delete(request, args, kwargs)
+        return self.destroy(request, *args, **kwargs)
 
 
 class MiniServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
