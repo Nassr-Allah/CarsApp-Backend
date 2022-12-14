@@ -25,6 +25,7 @@ urlpatterns = [
     path('models/<int:pk>/', CarModelCRUD.as_view(), name='models'),
     path('models/', CarModelCRUD.as_view(), name='models'),
     path('services/', ServiceCRUD.as_view(), name='services'),
+    path('services/<int:pk>/', ServiceCRUD.as_view(), name='services'),
     path('reservations/', ReservationCRUD.as_view(), name='reservations'),
     path('reservations/<int:pk>/', ReservationCRUD.as_view(), name='reservations'),
     path('miniservices/', MiniServiceCRUD.as_view(), name='mini_services')

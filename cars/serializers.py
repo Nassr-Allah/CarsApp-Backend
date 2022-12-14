@@ -11,7 +11,7 @@ class MiniServiceSerializer(serializers.ModelSerializer):
 
 
 class ServiceSerializer(serializers.ModelSerializer):
-    miniservice_set = MiniServiceSerializer(many=True)
+    miniservice_set = MiniServiceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Service

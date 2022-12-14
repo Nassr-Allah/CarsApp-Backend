@@ -63,6 +63,9 @@ class ServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin
         serializer = ServiceSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
 
 class ReservationCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     queryset = Reservation.objects.all()
