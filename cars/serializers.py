@@ -7,7 +7,7 @@ class MiniServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = MiniService
         fields = "__all__"
-        depth = 1
+        depth = 0
 
 
 class ServiceSerializer(serializers.ModelSerializer):
