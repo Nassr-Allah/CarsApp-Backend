@@ -104,3 +104,6 @@ class MiniServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
         queryset = self.get_queryset()
         serializer = MiniServiceSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
