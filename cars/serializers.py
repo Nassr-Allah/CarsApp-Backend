@@ -22,7 +22,7 @@ class EngineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Engine
         fields = "__all__"
-        depth = 1
+        depth = 0
 
 
 class CarModelSerializer(serializers.ModelSerializer):
