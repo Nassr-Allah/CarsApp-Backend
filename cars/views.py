@@ -123,7 +123,7 @@ class EngineCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = EngineSerializer(request, many=True)
+        serializer = EngineSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def delete(self, request, *args, **kwargs):
