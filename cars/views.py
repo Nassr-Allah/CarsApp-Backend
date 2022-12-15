@@ -107,3 +107,24 @@ class MiniServiceCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelM
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+
+class EngineCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
+    queryset = Engine.objects.all()
+    serializer_class = EngineSerializer
+
+    def get(self, request, *args, **kwargs):
+        if kwargs.get('pk'):
+            return self.retrieve(request, args, kwargs)
+        return self.list(request, args, kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = EngineSerializer(request, many=True)
+        return Response(serializer.data)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)

@@ -3,7 +3,6 @@ from .models import *
 
 
 class MiniServiceSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = MiniService
         fields = "__all__"
@@ -19,7 +18,16 @@ class ServiceSerializer(serializers.ModelSerializer):
         depth = 3
 
 
+class EngineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Engine
+        fields = "__all__"
+        depth = 1
+
+
 class CarModelSerializer(serializers.ModelSerializer):
+    engine_set = EngineSerializer(many=True, read_only=True)
+
     class Meta:
         model = CarModel
         fields = "__all__"
@@ -40,4 +48,3 @@ class ReservationSerializer(serializers.ModelSerializer):
         model = Reservation
         fields = "__all__"
         depth = 1
-

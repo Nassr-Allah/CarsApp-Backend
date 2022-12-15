@@ -45,3 +45,8 @@ class Reservation(models.Model):
 class MiniService(models.Model):
     name = models.CharField(max_length=256, default="")
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
+
+
+class Engine(models.Model):
+    name = models.CharField(max_length=124, default="")
+    car_model = models.ForeignKey(CarModel, on_delete=models.CASCADE)

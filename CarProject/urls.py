@@ -29,5 +29,7 @@ urlpatterns = [
     path('reservations/', ReservationCRUD.as_view(), name='reservations'),
     path('reservations/<int:pk>/', ReservationCRUD.as_view(), name='reservations'),
     path('miniservices/', MiniServiceCRUD.as_view(), name='mini_services'),
-    path('miniservices/<int:pk>/', MiniServiceCRUD.as_view(), name='mini_services')
+    path('miniservices/<int:pk>/', MiniServiceCRUD.as_view(), name='mini_services'),
+    path('engines/', EngineCRUD.as_view(), name='engines'),
+    path('engines/<int:pk>/', EngineCRUD.as_view(), name='engines'),
 ]
