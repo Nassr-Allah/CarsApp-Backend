@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'CarProject.wsgi.application'
 DB_URL = os.environ.get("DB_URL")
 DATABASES = {
     'default': {
-        "ENGINE":   "django.db.backends.postgresql",
+        "ENGINE":   "django.db.backends.postgresql_psycopg2",
         "NAME":     "postgres",
         "USER":     "postgres",
         "PASSWORD": "Abdou@162828",
