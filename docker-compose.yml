@@ -2,33 +2,28 @@ version: "3.19"
 
 services:
   db:
-    image: postgres:14.5-bullseye
+    image: postgres:latest
     volumes:
       - ./data/db:/var/lib/postgresql/data:z
     environment:
-      - POSTGRES_DB=CarProject
-      - POSTGRES_USER=spounka
-      - POSTGRES_PASSWORD=StrongComplicatedPassword123
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Abdou@162828
     ports:
       - "5432:5432"
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U spounka -d CarProject" ]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d postgres" ]
       interval: 2s
       timeout: 3s
       retries: 5
 
   web:
     build: .
-    #    command: gunicorn --bind :8000 --workers 2 CarsProject.wsgi
+    #command: gunicorn --bind :8000 --workers 2 CarProject.wsgi
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code:z
     ports:
       - "8000:8000"
-    environment:
-      - POSTGRES_DB=CarProject
-      - POSTGRES_USER=spounka
-      - POSTGRES_PASSWORD=StrongComplicatedPassword123
     depends_on:
-      db:
-        condition: service_healthy
+      - db

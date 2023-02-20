@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "&8njn*e8^02of0c@$5)-*(z!v6b+n0^4iw+^9y)m(tuea+)bo0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*', "https://django-server-production-8d46.up.railway.app"]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mssbackend.azurewebsites.net']
 
 # Application definition
 
@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'CarProject.wsgi.application'
 DB_URL = os.environ.get("DB_URL")
 DATABASES = {
     'default': {
-        "ENGINE":   "django.db.backends.postgresql_psycopg2",
-        "NAME":     "railway",
+        "ENGINE":   "django.db.backends.postgresql",
+        "NAME":     "postgres",
         "USER":     "postgres",
-        "PASSWORD": "20w0lyAgIgNq7AHrSan2",
-        "HOST":     "containers-us-west-151.railway.app",
-        "PORT":     "6068"
+        "PASSWORD": "Abdou@162828",
+        "HOST":     "mss.postgres.database.azure.com",
+        "PORT":     "5432"
 
     }
 }
@@ -129,4 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "https://django-server-production-8d46.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "https://django-server-production-8d46.up.railway.app",
+                        'https://mssbackend.azurewebsites.net']
