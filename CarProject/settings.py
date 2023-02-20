@@ -27,7 +27,7 @@ SECRET_KEY = "&8njn*e8^02of0c@$5)-*(z!v6b+n0^4iw+^9y)m(tuea+)bo0"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mssbackend.azurewebsites.net']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mssapp.azurewebsites.net']
 
 # Application definition
 
@@ -130,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "https://django-server-production-8d46.up.railway.app",
-                        'https://mssbackend.azurewebsites.net']
+                        'https://mssapp.azurewebsites.net']
