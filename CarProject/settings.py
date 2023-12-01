@@ -130,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CSRF_TRUSTED_ORIGINS = ['https://cars-app.fly.dev', "https://django-server-production-8d46.up.railway.app",
-                        'https://mssapp.azurewebsites.net', 'http://149.100.159.111', '149.100.159.111']
+                        'https://mssapp.azurewebsites.net', 'http://149.100.159.111']
