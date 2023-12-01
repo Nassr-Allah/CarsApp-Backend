@@ -20,6 +20,7 @@ from cars.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cars/', CarCRUD.as_view(), name='cars'),
+    path('hello-world', hello_world, name='hello-world'),
     path('cars/<int:pk>/', CarCRUD.as_view(), name='car'),
     path('cars/<str:name>/models/', CarModelCRUD.as_view(), name='models'),
     path('models/<int:pk>/', CarModelCRUD.as_view(), name='models'),

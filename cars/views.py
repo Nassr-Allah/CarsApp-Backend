@@ -1,4 +1,5 @@
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.decorators import api_view
 from rest_framework.mixins import CreateModelMixin, ListModelMixin
 from rest_framework.response import Response
 from rest_framework import status
@@ -7,6 +8,11 @@ from .serializers import *
 
 
 # Create your views here.
+@api_view(['GET', ])
+def hello_world(request):
+    return Response({"message": "Hello, world!"}, status=status.HTTP_200_OK)
+
+
 class CarCRUD(RetrieveUpdateDestroyAPIView, CreateModelMixin, ListModelMixin):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
