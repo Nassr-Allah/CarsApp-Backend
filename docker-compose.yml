@@ -2,7 +2,7 @@ version: "3.19"
 
 services:
   db:
-    image: carsapp-backend-web:latest
+    image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data:z
     environment:
