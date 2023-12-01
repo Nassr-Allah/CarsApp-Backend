@@ -27,7 +27,7 @@ SECRET_KEY = "&8njn*e8^02of0c@$5)-*(z!v6b+n0^4iw+^9y)m(tuea+)bo0"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mssapp.azurewebsites.net']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mssapp.azurewebsites.net', 'http://149.100.159.111']
 
 # Application definition
 
